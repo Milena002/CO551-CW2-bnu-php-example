@@ -32,7 +32,7 @@ if ($result->num_rows > 0) {
             <th>Town</th>
             <th>County</th>
             <th>Country</th>
-            <th>Student Postcode</th></tr>";
+            <th>Postcode</th></tr>";
   while($row = $result->fetch_assoc()) {
     echo "<tr><td>" . $row["studentid"] . "</td><td>" . $row["firstname"] . "</td><td>" . $row["lastname"] . "</td><td>" . $row["dob"] . "</td><td>" . $row["house"] . "</td><td>" . $row["town"] . "</td><td>" . $row["county"] . "</td><td>" . $row["country"] . "</td><td>" . $row["postcode"] . "</td></tr>";
   }
