@@ -22,6 +22,7 @@ $result = $db->query($sql);
 
 // Display the records in an HTML table
 
+echo"<form action='deletestudents.php' method='POST' onsubmit='return checkForm(this)'>";
 if ($result->num_rows > 0) {
   echo "<table border=1; height=40%; width=80%>";
   echo "<tr><th>Student ID</th>
@@ -32,11 +33,25 @@ if ($result->num_rows > 0) {
             <th>Town</th>
             <th>County</th>
             <th>Country</th>
-            <th>Postcode</th></tr>";
+            <th>Postcode</th>
+            <th> X </th></tr>";
   while($row = $result->fetch_assoc()) {
-    echo "<tr><td>" . $row["studentid"] . "</td><td>" . $row["firstname"] . "</td><td>" . $row["lastname"] . "</td><td>" . $row["dob"] . "</td><td>" . $row["house"] . "</td><td>" . $row["town"] . "</td><td>" . $row["county"] . "</td><td>" . $row["country"] . "</td><td>" . $row["postcode"] . "</td></tr>";
+    echo "<tr>
+    <td>". $row["studentid"] . "</td>
+    <td>". $row["firstname"] . "</td>
+    <td>". $row["lastname"] . "</td>
+    <td>" . $row["dob"] . "</td>
+    <td>" . $row["house"] . "</td>
+    <td>". $row["town"] . "</td>
+    <td>". $row["county"] . "</td>
+    <td>". $row["country"] . "</td>
+    <td>". $row["postcode"] . "</td>
+    <td> <input type = 'checkbox' name='students[]' value='$row[studentid]' </td></tr>";
   }
   echo "</table>";
+  echo "<br>";
+  echo "<input type='submit' name='deletebtn' value='Delete'/>";
+  echo"</form>";
 } else {
   echo "No records found.";
 }
@@ -44,3 +59,22 @@ if ($result->num_rows > 0) {
 $db->close();
 
 ?>
+
+<script>
+function checkForm(form) {
+    // Check if at least one checkbox is selected
+    var checkboxes = form.elements['students[]'];
+    var checkboxChecked = false;
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            checkboxChecked = true;
+            break;
+        }
+    }
+    if (!checkboxChecked) {
+        alert('Please select at least one student to delete.');
+        return false;
+    }
+    return true;
+}
+</script>
