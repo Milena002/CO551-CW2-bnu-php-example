@@ -50,7 +50,12 @@ if ($result->num_rows > 0) {
   }
   echo "</table>";
   echo "<br>";
+  echo "&nbsp;&nbsp;&nbsp;";
+  echo "<input type='button' value=' Back to Dashboard' onclick='window.location.href=\"index.php\"'>";
+  echo "&nbsp;&nbsp;&nbsp;";
   echo "<input type='submit' name='deletebtn' value='Delete'/>";
+  echo "&nbsp;&nbsp;&nbsp;";
+  echo "<input type='button' value='Add New Student' onclick='window.location.href=\"addstudent2.php\"'>";
   echo"</form>";
 } else {
   echo "No records found.";

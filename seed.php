@@ -22,8 +22,9 @@
    // Insert 5 student records into the database using faker library
   
    for ($i = 0; $i < 5; $i++) {
-      $studentid = $faker->unique()->numberBetween(2000001, 2999999);
-      $password = $faker->password();
+      $studentid = $faker->unique()->numberBetween(20000001, 29999999);
+      $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+     // $password = $faker->password();
       $dob = $faker->date();
       $firstname = $faker->firstName();
       $lastname = $faker->lastName();
@@ -34,7 +35,7 @@
       $postcode = $faker->postcode();
   
       $sql = "INSERT INTO student (studentid, password, dob, firstname, lastname, house, town, county, country, postcode)
-              VALUES ('$studentid', '$password', '$dob', '$firstname', '$lastname', '$house', '$town', '$county', '$country', '$postcode')";
+              VALUES ('$studentid', '$hashed_password', '$dob', '$firstname', '$lastname', '$house', '$town', '$county', '$country', '$postcode')";
 
       $db->query($sql);
   }

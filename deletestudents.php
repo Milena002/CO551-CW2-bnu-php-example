@@ -42,7 +42,7 @@ if (isset($_SESSION['id'])){
             $confirm_msg .= "<input type='hidden'name='students[]' value='$studentID'>";
         }
         $confirm_msg .= "<input type='submit'name='delete' value='Yes'>";
-        $confirm_msg .= "     ";
+        $confirm_msg .= "&nbsp;&nbsp;&nbsp;   ";
         $confirm_msg .="<input type='button' value='No ' onclick='window.location.href=\"students.php\"'>";
         $confirm_msg .="</form>";
         echo $confirm_msg;
