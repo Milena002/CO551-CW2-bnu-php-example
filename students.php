@@ -1,24 +1,22 @@
-<html>
-<body>
-    
-    <h1> University Students: </h1>
-    
-</body>
 
-</html>
 <?php
 
 include("_includes/config.inc");
 include("_includes/dbconnect.inc");
 include("_includes/functions.inc");
 
+
+echo template("templates/partials/header.php");
+echo template("templates/partials/nav.php");
+
+echo"</br><h3> University Students: </h3></br>";
 //db connection
-   $db = new mysqli("localhost", "root", "", "oss-cw2");
+  // $db = new mysqli("localhost", "root", "", "oss-cw2");
 
 
 // Retrieve all the records from the student table
-$sql = "SELECT studentid, firstname, lastname, dob, house, town, county, country, postcode FROM student";
-$result = $db->query($sql);
+$sql = "SELECT * FROM student";
+$result = mysqli_query($conn, $sql);
 
 // Display the records in an HTML table
 
@@ -34,19 +32,27 @@ if ($result->num_rows > 0) {
             <th>County</th>
             <th>Country</th>
             <th>Postcode</th>
+            <th>Photo Profile</th>
             <th> X </th></tr>";
   while($row = $result->fetch_assoc()) {
-    echo "<tr>
-    <td>". $row["studentid"] . "</td>
-    <td>". $row["firstname"] . "</td>
-    <td>". $row["lastname"] . "</td>
-    <td>" . $row["dob"] . "</td>
-    <td>" . $row["house"] . "</td>
-    <td>". $row["town"] . "</td>
-    <td>". $row["county"] . "</td>
-    <td>". $row["country"] . "</td>
-    <td>". $row["postcode"] . "</td>
-    <td> <input type = 'checkbox' name='students[]' value='$row[studentid]' </td></tr>";
+    echo "<tr>";
+    echo "<td>". $row["studentid"] . "</td>";
+    echo "<td>". $row["firstname"] . "</td>";
+    echo "<td>". $row["lastname"] . "</td>";
+    echo "<td>" . $row["dob"] . "</td>";
+    echo "<td>" . $row["house"] . "</td>";
+    echo "<td>". $row["town"] . "</td>";
+    echo "<td>". $row["county"] . "</td>";
+    echo "<td>". $row["country"] . "</td>";
+    echo "<td>". $row["postcode"] . "</td>";
+    if(!empty($row["profileimg"])){
+     echo "<td class='text-center'> <img src='data:image/jpeg;base64," . base64_encode($row['profileimg']) . "' height='80' width='120' /> </td>";
+    }else {
+     echo "<td> No Image Available </td>";
+  }
+    echo " <td>". "<input type = 'checkbox' name='students[]' value='$row[studentid]' </td>";
+    //echo "<td><img src='getjpeg.php?id=". $row["studentid"] . "' height='50' width='50'</td>" ;
+    echo "</tr>";
   }
   echo "</table>";
   echo "<br>";
@@ -61,7 +67,9 @@ if ($result->num_rows > 0) {
   echo "No records found.";
 }
 
-$db->close();
+echo template("templates/partials/footer.php");
+
+//$db->close();
 
 ?>
 

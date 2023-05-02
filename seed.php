@@ -4,6 +4,9 @@
    include("_includes/dbconnect.inc");
    include("_includes/functions.inc");
 
+   
+   echo template("templates/partials/header.php");
+   
    //faker library
    require_once 'vendor/autoload.php';
 
@@ -33,14 +36,20 @@
       $county = $faker->state();
       $country = $faker->country();
       $postcode = $faker->postcode();
+      
+      
+
   
       $sql = "INSERT INTO student (studentid, password, dob, firstname, lastname, house, town, county, country, postcode)
-              VALUES ('$studentid', '$hashed_password', '$dob', '$firstname', '$lastname', '$house', '$town', '$county', '$country', '$postcode')";
+              VALUES ('$studentid', '$hashed_password', '$dob', '$firstname', '$lastname', '$house', '$town', '$county', '$country',
+               '$postcode')";
 
       $db->query($sql);
   }
 
   // if my query is correct this message should be displayed:
   echo "Inserted 5 student records into the database.";
+
+  echo template("templates/partials/footer.php");
 
 ?>
