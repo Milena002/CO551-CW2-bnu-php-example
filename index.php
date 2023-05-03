@@ -18,6 +18,7 @@
       echo template("templates/partials/nav.php");
       echo template("templates/default.php", $data);
       //$data['content'] = "<img src ='ImageFiles/student.jpg' width='400' height='230' class='mt-20 mb-20 '>";
+     echo " <img src ='ImageFiles/student.jpg' width='400' height='230' class='mx-auto d-block mt-5 mb-5'>";
    } else {
       echo template("templates/login.php", $data);
    }
@@ -27,4 +28,3 @@
    // another test edit
 
 ?>
-<img src ='ImageFiles/student.jpg' width='400' height='230' class='mx-auto d-block mt-5 mb-5'>

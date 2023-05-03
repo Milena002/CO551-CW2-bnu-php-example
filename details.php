@@ -39,25 +39,34 @@ if (isset($_SESSION['id'])) {
       // see http://stackoverflow.com/questions/6924193/what-is-the-use-of-eod-in-php for info
       // also http://stackoverflow.com/questions/8280360/formatting-an-array-value-inside-a-heredoc
       $data['content'] = <<<EOD
-
-   <h2>My Details</h2>
-   <form name="frmdetails" action="" method="post">
-   First Name :
-   <input name="txtfirstname" type="text" value="{$row['firstname']}" /><br/>
-   Surname :
-   <input name="txtlastname" type="text"  value="{$row['lastname']}" /><br/>
-   Number and Street :
-   <input name="txthouse" type="text"  value="{$row['house']}" /><br/>
-   Town :
-   <input name="txttown" type="text"  value="{$row['town']}" /><br/>
-   County :
-   <input name="txtcounty" type="text"  value="{$row['county']}" /><br/>
-   Country :
-   <input name="txtcountry" type="text"  value="{$row['country']}" /><br/>
-   Postcode :
-   <input name="txtpostcode" type="text"  value="{$row['postcode']}" /><br/>
-   <input type="submit" value="Save" name="submit"/>
-   </form>
+      <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+          
+            <!-- form content --> 
+         <h2>My Details</h2>
+            <form name="frmdetails" action="" method="post">
+            First Name :
+            <input name="txtfirstname" type="text" value="{$row['firstname']}" /><br/>
+            Surname :
+            <input name="txtlastname" type="text"  value="{$row['lastname']}" /><br/>
+            Number and Street :
+            <input name="txthouse" type="text"  value="{$row['house']}" /><br/>
+            Town :
+            <input name="txttown" type="text"  value="{$row['town']}" /><br/>
+            County :
+            <input name="txtcounty" type="text"  value="{$row['county']}" /><br/>
+            Country :
+            <input name="txtcountry" type="text"  value="{$row['country']}" /><br/>
+            Postcode :
+            <input name="txtpostcode" type="text"  value="{$row['postcode']}" /><br/>
+            <input type="submit" value="Save" name="submit"/>
+            </form>
+         
+        </div>
+      </div>
+    </div>
+  
 
 EOD;
 

@@ -22,11 +22,12 @@ $result = mysqli_query($conn, $sql);
 
 echo"<form action='deletestudents.php' method='POST' onsubmit='return checkForm(this)'>";
 if ($result->num_rows > 0) {
-  echo "<table border=1; height=40%; width=80%>";
+  echo"<div class='table-responsive'>";
+  echo "<table class='table table-striped'>";
   echo "<tr><th>Student ID</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Date of Birth</th>
+            <th>Date of Birth</th> 
             <th>House</th>
             <th>Town</th>
             <th>County</th>
@@ -55,6 +56,7 @@ if ($result->num_rows > 0) {
     echo "</tr>";
   }
   echo "</table>";
+  echo "</div>";
   echo "<br>";
   echo "&nbsp;&nbsp;&nbsp;";
   echo "<input type='button' value=' Back to Dashboard' onclick='window.location.href=\"index.php\"'>";

@@ -52,12 +52,14 @@ if (isset($_SESSION['id'])) {
     $result = mysqli_query($conn,$sql);
 
   // $data["content"] = "<h4> Student record has been addded</h4>";
+  echo "<center>";
   echo "<h3> Student record has been addded</h3>";
  
 
    echo "<input type='button' value='Add New Student' onclick='window.location.href=\"addstudent2.php\"'>";
    echo "&nbsp;&nbsp;&nbsp;";
    echo "<input type='button' value='Back to Students' onclick='window.location.href=\"students.php\"'>";
+   echo"</center>";
     } 
    }
     else{
@@ -67,39 +69,46 @@ if (isset($_SESSION['id'])) {
       $data['content'] = <<<EOD
 
       <h3>Add New Student:</h3>
-      <form name="frmdetails" action="" method="post" enctype="multipart/form-data">
-   
-      <!-- student id -->
-   
-      Student ID :
-      <input name="studentid" type="number" min="20000000" max="29999999" value=""/><br/><br/>
-   
-      First Name :
-      <input name="firstname" type="text" value="" /><br/><br/>
-      Surname :
-      <input name="lastname" type="text"  value="" /><br/><br/>
-      Date of Birth:
-      <input type="date" id="dob" name="dob"/><br/><br/>
-   
-      <!-- student password -->
-      Password:
-      <input type="password" id="password" name="password"/><br/><br/>
-   
-      Number and Street :
-      <input name="house" type="text"  value="" /><br/><br/>
-      Town :
-      <input name="town" type="text"  value="" /><br/><br/>
-      County :
-      <input name="county" type="text"  value="" /><br/><br/>
-      Country :
-      <input name="country" type="text"  value="" /><br/><br/>
-      Postcode :
-      <input name="postcode" type="text"  value="" /><br/><br/>
-      Photo Profile :
-      <input type="file" name="photo" accept="image/jpeg" class="form control"/><br/><br/>
-      <input type="submit" value="Save" name="submit"/>
-      
-      </form>
+      <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+    
+        <form name="frmdetails" action="" method="post" enctype="multipart/form-data">
+       
+          <!-- student id -->
+       
+          Student ID :
+          <input name="studentid" type="number" min="20000000" max="29999999" value=""/><br/><br/>
+       
+          First Name :
+          <input name="firstname" type="text" value="" /><br/><br/>
+          Surname :
+          <input name="lastname" type="text"  value="" /><br/><br/>
+          Date of Birth:
+          <input type="date" id="dob" name="dob"/><br/><br/>
+       
+          <!-- student password -->
+          Password:
+          <input type="password" id="password" name="password"/><br/><br/>
+       
+          Number and Street :
+          <input name="house" type="text"  value="" /><br/><br/>
+          Town :
+          <input name="town" type="text"  value="" /><br/><br/>
+          County :
+          <input name="county" type="text"  value="" /><br/><br/>
+          Country :
+          <input name="country" type="text"  value="" /><br/><br/>
+          Postcode :
+          <input name="postcode" type="text"  value="" /><br/><br/>
+          Photo Profile :
+          <input type="file" name="photo" accept="image/jpeg" class="form control"/><br/><br/>
+          <input type="submit" value="Save" name="submit"/>
+          
+          </form>
+        </div>
+      </div>
+    </div>
    
    EOD;
   
