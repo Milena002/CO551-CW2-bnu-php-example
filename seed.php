@@ -28,14 +28,14 @@
       $studentid = $faker->unique()->numberBetween(20000001, 29999999);
       $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
      // $password = $faker->password();
-      $dob = $faker->date();
-      $firstname = $faker->firstName();
-      $lastname = $faker->lastName();
-      $house = $faker->buildingNumber();
-      $town = $faker->city();
-      $county = $faker->state();
-      $country = $faker->country();
-      $postcode = $faker->postcode();
+      $dob = mysqli_real_escape_string($db, $faker->date());
+      $firstname = mysqli_real_escape_string($db, $faker->firstName());
+      $lastname = mysqli_real_escape_string($db, $faker->lastName());
+      $house = mysqli_real_escape_string($db, $faker->buildingNumber());
+      $town = mysqli_real_escape_string($db, $faker->city());
+      $county = mysqli_real_escape_string($db, $faker->state());
+      $country = mysqli_real_escape_string($db, $faker->country());
+      $postcode = mysqli_real_escape_string($db, $faker->postcode());
       
       
 
