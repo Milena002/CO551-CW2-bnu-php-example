@@ -101,7 +101,7 @@ if (isset($_SESSION['id'])) {
           <input name="country" type="text"  value="" /><br/><br/>
           Postcode :
           <input name="postcode" type="text"  value="" /><br/><br/>
-          Photo Profile :
+          Profile Photo :
           <input type="file" name="photo" accept="image/jpeg" class="form control"/><br/><br/>
           <input type="submit" value="Save" name="submit"/>
           

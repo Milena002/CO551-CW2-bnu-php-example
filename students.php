@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
             <th>County</th>
             <th>Country</th>
             <th>Postcode</th>
-            <th>Photo Profile</th>
+            <th> Profile Photo</th>
             <th> X </th></tr>";
   while($row = $result->fetch_assoc()) {
     echo "<tr>";
